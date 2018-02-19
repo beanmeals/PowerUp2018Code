@@ -7,14 +7,6 @@
 
 package org.usfirst.frc.team3609.robot;
 
-
-public enum RobotMap {
-
-	public final int value;
+public enum Robotmap {
 	
-	RobotMap(int value)
-	{
-		this.value = value;
-		
-	}
 }
