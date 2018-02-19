@@ -9,4 +9,10 @@ package org.usfirst.frc.team3609.robot;
 
 public enum Robotmap {
 	
+	public final int value;
+	
+	RobotMap(int value)
+	{
+		this.value = value; 
+	}
 }
