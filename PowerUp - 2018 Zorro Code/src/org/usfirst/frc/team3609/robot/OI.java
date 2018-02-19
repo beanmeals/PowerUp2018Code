@@ -7,11 +7,51 @@
 
 package org.usfirst.frc.team3609.robot;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.XboxController;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
+	public static class DriverController
+	{
+		private static XboxController controller = new XboxController(1);
+		
+		/*
+		 * Gets the left stick Y axis of the controller
+		 */
+		public static double getLeftYAxis ()
+		{
+			return controller.getY(Hand.kLeft);
+		}
+		
+		/*
+		 * Gets the left stick X axis of the controller
+		 */
+		public static double getLeftXAxis ()
+		{
+			return controller.getX(Hand.kRight);
+		}
+		
+		/*
+		 * Gets the right stick Y axis of the controller
+		 */
+		public static double getRightYAxis ()
+		{
+			return controller.getY(Hand.kLeft);
+		}
+		
+		/*
+		 * Gets the right stick X axis of the controller
+		 */
+		public static double getRightXAxis ()
+		{
+			return controller.getX(Hand.kRight);
+		}
+	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.

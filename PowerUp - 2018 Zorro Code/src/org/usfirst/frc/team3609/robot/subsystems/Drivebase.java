@@ -17,9 +17,5 @@ public class Drivebase extends Subsystem {
 		rightMotorBack = new Talon(3);
 	}
 	
-	@Override
-	protected void initDefaultCommand() {
-		
-	}
 
 }
