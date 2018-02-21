@@ -7,12 +7,17 @@
 
 package org.usfirst.frc.team3609.robot;
 
-public enum Robotmap {
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+
+
+public class RobotMap {
 	
-	public final int value;
+	public static TalonSRX leftFMotor;
+	public static TalonSRX leftBMotor;
+	public static TalonSRX rightFMotor;
+	public static TalonSRX rightBMotor;
 	
-	RobotMap(int value)
-	{
-		this.value = value; 
-	}
+
 }
+
