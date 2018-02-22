@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.XboxController;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+<<<<<<< HEAD
 	
 	public static class DriverController
 	{
@@ -53,8 +54,43 @@ public class OI {
 		}
 	}
 	//// CREATING BUTTONS
+=======
+
+	public static class DriverController {
+		private static XboxController controller = new XboxController(1);
+
+		/*
+		 * Gets the left stick Y axis of the controller
+		 */
+		public static double getLeftYAxis() {
+			return controller.getY(Hand.kLeft);
+		}
+
+		/*
+		 * Gets the left stick X axis of the controller
+		 */
+		public static double getLeftXAxis() {
+			return controller.getX(Hand.kRight);
+		}
+
+		/*
+		 * Gets the right stick Y axis of the controller
+		 */
+		public static double getRightYAxis() {
+			return controller.getY(Hand.kLeft);
+		}
+
+		/*
+		 * Gets the right stick X axis of the controller
+		 */
+		public static double getRightXAxis() {
+			return controller.getX(Hand.kRight);
+		}
+	}
+	// // CREATING BUTTONS
+>>>>>>> c350dd057f1311429428caeef12332269eb7d466
 	// One type of button is a joystick button which is any button on a
-	//// joystick.
+	// // joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	// Joystick stick = new Joystick(port);
@@ -64,7 +100,7 @@ public class OI {
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
 
-	//// TRIGGERING COMMANDS WITH BUTTONS
+	// // TRIGGERING COMMANDS WITH BUTTONS
 	// Once you have a button, it's trivial to bind it to a button in one of
 	// three ways:
 
