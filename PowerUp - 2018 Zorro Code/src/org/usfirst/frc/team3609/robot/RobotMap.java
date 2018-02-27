@@ -9,15 +9,11 @@ package org.usfirst.frc.team3609.robot;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-
-
 public class RobotMap {
-	
+
 	public static TalonSRX leftFMotor;
 	public static TalonSRX leftBMotor;
 	public static TalonSRX rightFMotor;
 	public static TalonSRX rightBMotor;
-	
 
 }
-
