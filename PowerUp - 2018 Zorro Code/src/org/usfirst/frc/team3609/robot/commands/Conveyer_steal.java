@@ -4,17 +4,17 @@ import org.usfirst.frc.team3609.robot.subsystems.Conveyer_motor;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Conveyer_command extends Command {
+public class Conveyer_steal extends Command {
 
-	protected void initialize() {
-		Conveyer_motor.shoot();
+	public void initialize() {
+		Conveyer_motor.steal();
 	}
 
-	protected void end() {
+	public void end() {
 		Conveyer_motor.stop();
 	}
 
-	protected void interupted() {
+	public void interupted() {
 		end();
 	}
 
@@ -23,4 +23,5 @@ public class Conveyer_command extends Command {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 }
