@@ -7,22 +7,23 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class Drivebase_subsystem extends Subsystem {
-	public DifferentialDrive MainDrive = new DifferentialDrive(RobotMap.leftFMotor,RobotMap.leftBMotor,RobotMap.rightFMotor,RobotMap.rightBMotor);
-	
+	private DifferentialDrive MainDrive = new DifferentialDrive(
+			RobotMap.leftFMotor, RobotMap.leftBMotor, RobotMap.rightFMotor,
+			RobotMap.rightBMotor);
+
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	public void TeleopDrive() {
-		MainDrive.tankDrive(leftSpeed, rightSpeed, squaredInputs);
-		
+		MainDrive.tankDrive(leftSpeed, rightSpeed, true);
+
 	}
-	
+
 	public void Stop() {
 		MainDrive.tankDrive(0, 0);
 	}
-	
 
-	
 }
