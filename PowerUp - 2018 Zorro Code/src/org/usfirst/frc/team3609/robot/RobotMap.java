@@ -7,13 +7,14 @@
 
 package org.usfirst.frc.team3609.robot;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 
 public class RobotMap {
 
-	public static TalonSRX leftFMotor;
-	public static TalonSRX leftBMotor;
-	public static TalonSRX rightFMotor;
-	public static TalonSRX rightBMotor;
+	public static WPI_TalonSRX leftFMotor;
+	public static WPI_TalonSRX leftBMotor;
+	public static WPI_TalonSRX rightFMotor;
+	public static WPI_TalonSRX rightBMotor;
 
 }
