@@ -21,7 +21,4 @@ public class Drivebase_subsystem extends Subsystem {
 	public void Stop() {
 		MainDrive.tankDrive(0, 0);
 	}
-	
-
-	
 }

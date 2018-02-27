@@ -9,6 +9,7 @@ public class Conveyer_motor {
 	public static void shoot() {
 		conveyerMotor.set(1);
 	}
+
 	public static void steal() {
 		conveyerMotor.set(-1);
 	}
