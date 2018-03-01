@@ -7,17 +7,17 @@ public class Cube_intake {
 	static WPI_TalonSRX intakeMotorL = new WPI_TalonSRX(16);
 	static WPI_TalonSRX intakeMotorR = new WPI_TalonSRX(17);
 
-	public void take() {
+	public static void take() {
 		intakeMotorL.set(1);
 		intakeMotorR.set(-1);
 	}
 
-	public void give() {
+	public static void give() {
 		intakeMotorL.set(-1);
 		intakeMotorR.set(1);
 	}
 
-	public void stop() {
+	public static void stop() {
 		intakeMotorL.set(0);
 		intakeMotorR.set(0);
 	}
