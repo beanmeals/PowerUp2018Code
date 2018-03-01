@@ -16,7 +16,7 @@ public class TankDrive extends Command {
 	protected void initailize() {
 		
 	}
-	protected void execute() {
+	public void execute() { 
 		public void TeleopDrive() {
 			DifferentialDrive m_Drive;
 			m_Drive.tankDrive(OI.DriverController.getLeftYAxis(),OI.DriverController.getRightYAxis(), true);
