@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class Drivebase extends Subsystem {
-	public DifferentialDrive m_Drive;
+	public static DifferentialDrive m_Drive;
 	public WPI_TalonSRX leftMaster;
 	public WPI_TalonSRX leftFollower;
 	public WPI_TalonSRX rightMaster;
