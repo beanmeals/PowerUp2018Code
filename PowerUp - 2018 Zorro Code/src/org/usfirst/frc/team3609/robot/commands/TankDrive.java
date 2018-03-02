@@ -10,21 +10,16 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class TankDrive extends Command {
 
 	public TankDrive() {
-		requires(Drivebase.m_Drive);
+		requires(Robot.drivebase);
 	}
 	
 	protected void initailize() {
 		
 	}
 	public void execute() { 
-			Drivebase.m_Drive.tankDrive(OI.DriverController.getLeftYAxis(),OI.DriverController.getRightYAxis(), true);
+			Robot.drivebase.m_Drive.tankDrive(OI.DriverController.getLeftYAxis(),OI.DriverController.getRightYAxis(), true);
 	}
 	
-	private void requires(DifferentialDrive mainDrive) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub

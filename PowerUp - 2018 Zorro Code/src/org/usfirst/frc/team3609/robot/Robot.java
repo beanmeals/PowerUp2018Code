@@ -10,17 +10,19 @@ package org.usfirst.frc.team3609.robot;
 import org.usfirst.frc.team3609.robot.commands.TankDrive;
 import org.usfirst.frc.team3609.robot.subsystems.Drivebase;
 
+import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class Robot extends TimedRobot {
+public class Robot extends IterativeRobot {
 	public static OI oi;
-	public Drivebase drivebase;
+	public static final Drivebase drivebase = new Drivebase();
 
 	Command m_autonomousCommand;
+	TankDrive myCommand = new TankDrive();
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 	/**
@@ -30,7 +32,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		drivebase = new Drivebase();
+		
+		//m_chooser.addDefault("Default Auto", new TankDrive());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
@@ -96,6 +99,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
+		Scheduler.getInstance().add(myCommand);
 	}
 
 	/**
@@ -104,6 +108,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		//myCommand.;
+		
 	}
 
 	/**
