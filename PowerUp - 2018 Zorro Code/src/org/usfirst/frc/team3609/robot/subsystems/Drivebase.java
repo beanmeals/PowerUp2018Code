@@ -29,6 +29,8 @@ public class Drivebase extends Subsystem {
 		 m_Left = new SpeedControllerGroup(leftMaster, leftFollower);
 		 m_Right = new SpeedControllerGroup(rightMaster, rightFollower);
 		 m_Drive = new DifferentialDrive(m_Left, m_Right);
+		 leftFollower.follow(leftMaster);
+		 rightFollower.follow(rightMaster);
 	}
 
 	@Override
