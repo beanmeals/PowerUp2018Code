@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.XboxController;
 public class OI {
 
 	public static class DriverController {
-		private static XboxController controller = new XboxController(1);
+		private static XboxController controller = new XboxController(0);
 
 		/*
 		 * Gets the left stick Y axis of the controller
@@ -46,6 +46,17 @@ public class OI {
 		public static double getRightXAxis() {
 			return controller.getX(Hand.kRight);
 		}
+	public static class OperatorController {
+		private static XboxController OController = new XboxController(1);
+		// Gets left Y Axis of the operator's controller for Left motor of the  cube intake
+		public static double getLeftMotor() {
+			return OController.getY(Hand.kLeft);
+		}
+		// Gets right Y Axis of the operator's controller for Right motor of the cube intake
+		public static double getRightMotor() {
+			return OController.getY(Hand.kRight);
+		}
+	}
 	}
 	// // CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

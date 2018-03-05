@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team3609.robot;
 
+import org.usfirst.frc.team3609.robot.commands.Cube_intake;
 import org.usfirst.frc.team3609.robot.commands.TankDrive;
 import org.usfirst.frc.team3609.robot.subsystems.Drivebase;
 
@@ -24,6 +25,7 @@ public class Robot extends IterativeRobot {
 	Command m_autonomousCommand;
 	TankDrive myCommand = new TankDrive();
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	Cube_intake cubeCommand = new Cube_intake();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -100,6 +102,7 @@ public class Robot extends IterativeRobot {
 			m_autonomousCommand.cancel();
 		}
 		Scheduler.getInstance().add(myCommand);
+		Scheduler.getInstance().add(cubeCommand);
 	}
 
 	/**
