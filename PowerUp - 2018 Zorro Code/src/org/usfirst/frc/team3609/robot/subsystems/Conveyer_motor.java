@@ -1,19 +1,22 @@
 package org.usfirst.frc.team3609.robot.subsystems;
 
+import org.usfirst.frc.team3609.robot.OI;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class Conveyer_motor {
 
 	static WPI_TalonSRX conveyerMotor = new WPI_TalonSRX(15);
 
+
+	public static void intake() {
+		conveyerMotor.set(OI.DriverController.conveyerIntake());
+	}
+	
 	public static void shoot() {
-		conveyerMotor.set(1);
+		conveyerMotor.set(OI.DriverController.conveyerShoot());
 	}
-
-	public static void steal() {
-		conveyerMotor.set(-1);
-	}
-
+	
 	public static void stop() {
 		conveyerMotor.set(0);
 	}

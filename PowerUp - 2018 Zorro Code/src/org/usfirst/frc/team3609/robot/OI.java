@@ -46,6 +46,12 @@ public class OI {
 		public static double getRightXAxis() {
 			return controller.getX(Hand.kRight);
 		}
+		public static double conveyerIntake() {
+			return controller.getTriggerAxis(Hand.kRight);
+		}
+		public static double conveyerShoot() {
+			return controller.getTriggerAxis(Hand.kLeft);
+		}
 	public static class OperatorController {
 		private static XboxController OController = new XboxController(1);
 		// Gets left Y Axis of the operator's controller for Left motor of the  cube intake
@@ -55,6 +61,15 @@ public class OI {
 		// Gets right Y Axis of the operator's controller for Right motor of the cube intake
 		public static double getRightMotor() {
 			return OController.getY(Hand.kRight);
+		}
+		public static double conveyerIntake() {
+			return controller.getTriggerAxis(Hand.kRight);
+		}
+		public static double conveyerShoot() {
+			return controller.getTriggerAxis(Hand.kLeft)*-1;
+		}
+		public static boolean climberActivator() {
+			return OController.getXButton();
 		}
 	}
 	}

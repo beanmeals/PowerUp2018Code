@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Cube_intake extends Command {
 	
 	protected void initialize() {
-		Cube_motors.take();
+		
 	}
 	
 	protected void execute() {

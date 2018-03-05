@@ -4,10 +4,10 @@ import org.usfirst.frc.team3609.robot.subsystems.Conveyer_motor;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Conveyer_steal extends Command {
+public class Conveyer_intake extends Command {
 
 	public void initialize() {
-		Conveyer_motor.steal();
+		Conveyer_motor.intake();
 	}
 
 	public void end() {

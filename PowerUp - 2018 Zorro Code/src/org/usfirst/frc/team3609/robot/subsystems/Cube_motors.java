@@ -6,10 +6,12 @@ import org.usfirst.frc.team3609.robot.commands.TankDrive;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Talon;
+
 
 public class Cube_motors {
-	static WPI_TalonSRX intakeMotorL = new WPI_TalonSRX(16);
-	static WPI_TalonSRX intakeMotorR = new WPI_TalonSRX(17);
+	static Talon intakeMotorL = new Talon(16);
+	static Talon intakeMotorR = new Talon(17);
 
 	public static void take() {
 		intakeMotorL.set(1);
