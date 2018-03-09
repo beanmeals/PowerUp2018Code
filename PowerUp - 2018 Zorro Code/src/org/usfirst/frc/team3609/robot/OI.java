@@ -56,7 +56,7 @@ public class OI {
 		private static XboxController OController = new XboxController(1);
 		// Gets left Y Axis of the operator's controller for Left motor of the  cube intake
 		public static double getLeftMotor() {
-			return OController.getY(Hand.kLeft);
+			return OController.getY(Hand.kLeft)*-1;
 		}
 		// Gets right Y Axis of the operator's controller for Right motor of the cube intake
 		public static double getRightMotor() {
