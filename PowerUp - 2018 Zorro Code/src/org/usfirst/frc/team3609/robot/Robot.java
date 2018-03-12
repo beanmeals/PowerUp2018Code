@@ -22,7 +22,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static final Drivebase drivebase = new Drivebase();
-
+	public static final int TICK_DURATION = 20;
+	private int time = 0;
 	Command m_autonomousCommand;
 	TankDrive myCommand = new TankDrive();
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -55,6 +56,7 @@ public class Robot extends IterativeRobot {
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}
+	
 
 	/**
 	 * This autonomous (along with the chooser code above) shows how to select
@@ -90,7 +92,14 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		Scheduler.getInstance().run();
+		Scheduler.getInstance().run();		
+		time = time + TICK_DURATION;
+		if (time < 3500) {
+			drivebase.m_Drive.tankDrive(0.8, 0.8);
+		}
+		else {
+			Drivebase.m_Drive.tankDrive(0,0);
+		}
 	}
 
 	@Override
