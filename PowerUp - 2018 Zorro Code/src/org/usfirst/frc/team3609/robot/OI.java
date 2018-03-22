@@ -30,14 +30,14 @@ public class OI {
 		 * Gets the left stick X axis of the controller
 		 */
 		public static double getLeftXAxis() {
-			return controller.getX(Hand.kRight);
+			return controller.getX(Hand.kLeft);
 		}
 
 		/*
 		 * Gets the right stick Y axis of the controller
 		 */
 		public static double getRightYAxis() {
-			return controller.getY(Hand.kLeft);
+			return controller.getY(Hand.kRight);
 		}
 
 		/*
@@ -46,32 +46,48 @@ public class OI {
 		public static double getRightXAxis() {
 			return controller.getX(Hand.kRight);
 		}
+
 		public static double conveyerIntake() {
 			return controller.getTriggerAxis(Hand.kRight);
 		}
+
 		public static double conveyerShoot() {
 			return controller.getTriggerAxis(Hand.kLeft);
 		}
-	public static class OperatorController {
-		private static XboxController OController = new XboxController(1);
-		// Gets left Y Axis of the operator's controller for Left motor of the  cube intake
-		public static double getLeftMotor() {
-			return OController.getY(Hand.kLeft)*-1;
-		}
-		// Gets right Y Axis of the operator's controller for Right motor of the cube intake
-		public static double getRightMotor() {
-			return OController.getY(Hand.kRight);
-		}
-		public static double conveyerIntake() {
-			return controller.getTriggerAxis(Hand.kRight);
-		}
-		public static double conveyerShoot() {
-			return controller.getTriggerAxis(Hand.kLeft)*-1;
-		}
+
 		public static boolean climberActivator() {
-			return OController.getXButton();
+			return controller.getXButton();
 		}
-	}
+
+		public static class OperatorController {
+			private static XboxController OController = new XboxController(1);
+
+			// Gets left Y Axis of the operator's controller for Left motor of
+			// the cube
+			// intake
+			public static double getLeftMotor() {
+				return OController.getY(Hand.kLeft) * -1;
+			}
+
+			// Gets right Y Axis of the operator's controller for Right motor of
+			// the cube
+			// intake
+			public static double getRightMotor() {
+				return OController.getY(Hand.kRight);
+			}
+
+			public static double conveyerIntake() {
+				return OController.getTriggerAxis(Hand.kRight);
+			}
+
+			public static double conveyerShoot() {
+				return OController.getTriggerAxis(Hand.kLeft) * -1;
+			}
+
+			public static boolean climberActivator() {
+				return OController.getXButton();
+			}
+		}
 	}
 	// // CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

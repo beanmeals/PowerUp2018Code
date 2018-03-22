@@ -1,24 +1,29 @@
 package org.usfirst.frc.team3609.robot.subsystems;
 
 import org.usfirst.frc.team3609.robot.OI;
+import org.usfirst.frc.team3609.robot.commands.Conveyer_intake;
+import org.usfirst.frc.team3609.robot.commands.TankDrive;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-public class Conveyer_motor {
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+public class Conveyer_motor extends Subsystem {
 
 	static WPI_TalonSRX conveyerMotor = new WPI_TalonSRX(15);
 
-
 	public static void intake() {
 		conveyerMotor.set(OI.DriverController.conveyerIntake());
-	}
-	
-	public static void shoot() {
 		conveyerMotor.set(OI.DriverController.conveyerShoot());
 	}
-	
+
 	public static void stop() {
 		conveyerMotor.set(0);
+	}
+
+	@Override
+	protected void initDefaultCommand() {
+		setDefaultCommand(new Conveyer_intake());
 	}
 
 }
