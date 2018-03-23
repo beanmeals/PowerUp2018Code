@@ -6,7 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Conveyer_intake extends Command {
 
-	public void initialize() {
+	protected void initialize() {
+	}
+
+	public void execute() {
 		Conveyer_motor.intake();
 	}
 

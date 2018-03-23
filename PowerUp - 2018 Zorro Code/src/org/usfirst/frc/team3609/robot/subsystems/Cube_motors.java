@@ -8,10 +8,9 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Talon;
 
-
 public class Cube_motors {
-	static Talon intakeMotorL = new Talon(16);
-	static Talon intakeMotorR = new Talon(17);
+	static Talon intakeMotorL = new Talon(0);
+	static Talon intakeMotorR = new Talon(1);
 
 	public static void take() {
 		intakeMotorL.set(1);
@@ -22,20 +21,21 @@ public class Cube_motors {
 		intakeMotorL.set(-1);
 		intakeMotorR.set(1);
 	}
-	
+
 	public static void manual() {
 		intakeMotorL.set(OI.DriverController.OperatorController.getLeftMotor());
-		intakeMotorR.set(OI.DriverController.OperatorController.getRightMotor());
+		intakeMotorR
+				.set(OI.DriverController.OperatorController.getRightMotor());
 	}
-	
+
 	protected void initDefaultCommand() {
-		setDefaultCommand( new Cube_intake());
+		setDefaultCommand(new Cube_intake());
 
 	}
 
 	private void setDefaultCommand(Cube_intake cube_intake) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public static void stop() {

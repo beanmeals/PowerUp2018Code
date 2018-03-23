@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class RobotMap {
-	
+
 	public static final int leftMasterId = 10;
 	public static final int leftFollowerId = 11;
 	public static final int rightMasterId = 12;

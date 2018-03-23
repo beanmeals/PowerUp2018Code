@@ -8,11 +8,13 @@
 package org.usfirst.frc.team3609.robot;
 
 import org.usfirst.frc.team3609.robot.commands.Cube_intake;
-import org.usfirst.frc.team3609.robot.commands.Conveyer_intake*;
+import org.usfirst.frc.team3609.robot.commands.ClimbStuff;
+import org.usfirst.frc.team3609.robot.commands.Conveyer_intake;
 import org.usfirst.frc.team3609.robot.commands.TankDrive;
 import org.usfirst.frc.team3609.robot.subsystems.Drivebase;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -28,6 +30,8 @@ public class Robot extends IterativeRobot {
 	TankDrive myCommand = new TankDrive();
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	Cube_intake cubeCommand = new Cube_intake();
+	ClimbStuff iClimb = new ClimbStuff();
+	Conveyer_intake iConveyer = new Conveyer_intake();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -36,8 +40,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		
-		//m_chooser.addDefault("Default Auto", new TankDrive());
+
+		// m_chooser.addDefault("Default Auto", new TankDrive());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
@@ -56,7 +60,6 @@ public class Robot extends IterativeRobot {
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}
-	
 
 	/**
 	 * This autonomous (along with the chooser code above) shows how to select
@@ -92,13 +95,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		Scheduler.getInstance().run();		
+		Scheduler.getInstance().run();
 		time = time + TICK_DURATION;
 		if (time < 3500) {
 			drivebase.m_Drive.tankDrive(0.8, 0.8);
-		}
-		else {
-			Drivebase.m_Drive.tankDrive(0,0);
+		} else {
+			Drivebase.m_Drive.tankDrive(0, 0);
 		}
 	}
 
@@ -113,6 +115,8 @@ public class Robot extends IterativeRobot {
 		}
 		Scheduler.getInstance().add(myCommand);
 		Scheduler.getInstance().add(cubeCommand);
+		Scheduler.getInstance().add(iClimb);
+		Scheduler.getInstance().add(iConveyer);
 	}
 
 	/**
@@ -121,8 +125,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		//myCommand.;
-		
+		// myCommand.;
+
 	}
 
 	/**
