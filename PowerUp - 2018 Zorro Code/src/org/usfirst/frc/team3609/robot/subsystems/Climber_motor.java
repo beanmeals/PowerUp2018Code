@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Climber_motor extends Subsystem {
 
-	public static WPI_TalonSRX climberMotor = new WPI_TalonSRX(14);
+	public static WPI_TalonSRX climberMotor = new WPI_TalonSRX(15);
 
 	@Override
 	protected void initDefaultCommand() {

@@ -8,11 +8,15 @@
 package org.usfirst.frc.team3609.robot;
 
 import org.usfirst.frc.team3609.robot.commands.Cube_intake;
+import org.usfirst.frc.team3609.robot.commands.Lift;
 import org.usfirst.frc.team3609.robot.commands.ClimbStuff;
 import org.usfirst.frc.team3609.robot.commands.Conveyer_intake;
 import org.usfirst.frc.team3609.robot.commands.TankDrive;
 import org.usfirst.frc.team3609.robot.subsystems.Drivebase;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -31,7 +35,10 @@ public class Robot extends IterativeRobot {
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	Cube_intake cubeCommand = new Cube_intake();
 	ClimbStuff iClimb = new ClimbStuff();
+	Lift iLift = new Lift();
 	Conveyer_intake iConveyer = new Conveyer_intake();
+	//Compressor c1 = new Compressor(0);
+	
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -40,10 +47,18 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-
+		
 		// m_chooser.addDefault("Default Auto", new TankDrive());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		//c1.setClosedLoopControl(true);
+		UsbCamera cam1 = CameraServer.getInstance().startAutomaticCapture(0);
+		cam1.setResolution(180,	120);
+		cam1.setFPS(15);
+		Compressor myCompressor = new Compressor(0);
+		myCompressor.setClosedLoopControl(true);
+		System.out.println(myCompressor.enabled());
+		System.out.println(myCompressor.getPressureSwitchValue());
 	}
 
 	/**
@@ -98,7 +113,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		time = time + TICK_DURATION;
 		if (time < 3500) {
-			drivebase.m_Drive.tankDrive(0.8, 0.8);
+			drivebase.m_Drive.tankDrive(0.8, -0.75);
 		} else {
 			Drivebase.m_Drive.tankDrive(0, 0);
 		}
@@ -117,6 +132,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().add(cubeCommand);
 		Scheduler.getInstance().add(iClimb);
 		Scheduler.getInstance().add(iConveyer);
+		Scheduler.getInstance().add(iLift);
 	}
 
 	/**

@@ -9,25 +9,29 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Conveyer_motor{
-	static WPI_TalonSRX conveyerMotor = new WPI_TalonSRX(15);
+public class Conveyer_motor extends Subsystem{
+	static WPI_TalonSRX conveyerMotor = new WPI_TalonSRX(14);
 
 	public static void intake() {
+		if ( OI.DriverController.conveyerShoot() > .5)
+		{
+		conveyerMotor.set(OI.DriverController.conveyerShoot() * -1);
+		}
+		else
+		{
 		conveyerMotor.set(OI.DriverController.conveyerIntake());
-		conveyerMotor.set(OI.DriverController.conveyerShoot());
+		}
 	}
 
 	public static void stop() {
 		conveyerMotor.set(0);
 	}
 
+	@Override
 	protected void initDefaultCommand() {
+		
 		setDefaultCommand(new Conveyer_intake());
-	}
-	
-	private void setDefaultCommand(Conveyer_intake cov_intake) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 }

@@ -58,6 +58,10 @@ public class OI {
 		public static boolean climberActivator() {
 			return controller.getXButton();
 		}
+		
+		public static boolean liftActivator() {
+			return controller.getBumper(Hand.kRight);
+		}
 
 		public static class OperatorController {
 			private static XboxController OController = new XboxController(1);
@@ -69,6 +73,11 @@ public class OI {
 				return OController.getY(Hand.kLeft) * -1;
 			}
 
+			public static boolean liftActivator() {
+				return controller.getBumper(Hand.kRight);
+			}
+			
+			
 			// Gets right Y Axis of the operator's controller for Right motor of
 			// the cube
 			// intake

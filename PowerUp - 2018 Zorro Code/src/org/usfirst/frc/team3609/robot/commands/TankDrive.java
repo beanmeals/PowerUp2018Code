@@ -18,8 +18,8 @@ public class TankDrive extends Command {
 	}
 
 	public void execute() {
-		Robot.drivebase.m_Drive.tankDrive(OI.DriverController.getLeftYAxis(),
-				OI.DriverController.getRightYAxis(), true);
+		Robot.drivebase.m_Drive.tankDrive(OI.DriverController.getRightYAxis(),
+				OI.DriverController.getLeftYAxis(), true);
 	}
 
 	@Override
