@@ -29,7 +29,7 @@ public class Robot extends IterativeRobot {
 	TankDrive myCommand = new TankDrive();
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	Cube_intake cubeCommand = new Cube_intake();
-	ClimbStuff iClimb = new ClimbStuff();
+	//ClimbStuff iClimb = new ClimbStuff();
 	Conveyer_intake iConveyer = new Conveyer_intake();
 
 	/**
@@ -114,8 +114,8 @@ public class Robot extends IterativeRobot {
 		}
 		Scheduler.getInstance().add(myCommand);
 		Scheduler.getInstance().add(cubeCommand);
-		Scheduler.getInstance().add(iClimb);
-		Scheduler.getInstance().add(iConveyer);
+		//Scheduler.getInstance().add(iClimb);
+		//Scheduler.getInstance().add(iConveyer);
 	}
 
 	/**
