@@ -58,6 +58,13 @@ public class OI {
 		public static boolean climberActivator() {
 			return controller.getXButton();
 		}
+		public static boolean lowTankDrive() {
+			return controller.getBumperPressed(Hand.kLeft);
+		}
+		public static boolean highTankDrive() {
+			return controller.getBumperPressed(Hand.kRight);
+		}
+
 
 		public static class OperatorController {
 			private static XboxController OController = new XboxController(1);
@@ -86,6 +93,9 @@ public class OI {
 
 			public static boolean climberActivator() {
 				return OController.getXButton();
+			}
+			public static boolean liftActivator() {
+				return OController.getBumper(Hand.kRight);
 			}
 		}
 	}
