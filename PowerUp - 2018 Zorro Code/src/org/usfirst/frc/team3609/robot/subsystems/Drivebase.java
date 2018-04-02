@@ -3,6 +3,8 @@ package org.usfirst.frc.team3609.robot.subsystems;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import org.usfirst.frc.team3609.robot.RobotMap;
 import org.usfirst.frc.team3609.robot.commands.TankDrive;
+import org.usfirst.frc.team3609.robot.commands.lowTank;
+
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -26,8 +28,9 @@ public class Drivebase extends Subsystem {
 		m_Left = new SpeedControllerGroup(leftMaster, leftFollower);
 		m_Right = new SpeedControllerGroup(rightMaster, rightFollower);
 		m_Drive = new DifferentialDrive(m_Left, m_Right);
-		leftFollower.follow(leftMaster);
-		rightFollower.follow(rightMaster);
+		//leftFollower.follow(leftMaster);
+		//rightFollower.follow(rightMaster);
+		//m_Drive = new DifferentialDrive(leftMaster, rightMaster);
 	}
 
 	@Override

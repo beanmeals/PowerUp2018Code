@@ -23,9 +23,9 @@ public class Cube_motors {
 	}
 
 	public static void manual() {
-		intakeMotorL.set(OI.DriverController.OperatorController.getLeftMotor());
-		intakeMotorR
-				.set(OI.DriverController.OperatorController.getRightMotor());
+
+		intakeMotorL.set(Math.pow(OI.DriverController.OperatorController.getLeftMotor(), 3) * -0.65);
+		intakeMotorR.set(Math.pow(OI.DriverController.OperatorController.getRightMotor(), 3));
 	}
 
 	protected void initDefaultCommand() {

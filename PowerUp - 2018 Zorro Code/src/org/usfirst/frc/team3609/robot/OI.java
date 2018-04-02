@@ -58,9 +58,13 @@ public class OI {
 		public static boolean climberActivator() {
 			return controller.getXButton();
 		}
-		
-		public static boolean liftActivator() {
-			return controller.getBumper(Hand.kRight);
+
+		public static boolean lowTankDrive() {
+			return controller.getBumperPressed(Hand.kLeft);
+		}
+
+		public static boolean highTankDrive() {
+			return controller.getBumperPressed(Hand.kRight);
 		}
 
 		public static class OperatorController {
@@ -73,11 +77,6 @@ public class OI {
 				return OController.getY(Hand.kLeft) * -1;
 			}
 
-			public static boolean liftActivator() {
-				return controller.getBumper(Hand.kRight);
-			}
-			
-			
 			// Gets right Y Axis of the operator's controller for Right motor of
 			// the cube
 			// intake
@@ -96,6 +95,11 @@ public class OI {
 			public static boolean climberActivator() {
 				return OController.getXButton();
 			}
+
+			/*
+			 * public static boolean liftActivator() { return
+			 * OController.getBumper(Hand.kRight); }
+			 */
 		}
 	}
 	// // CREATING BUTTONS

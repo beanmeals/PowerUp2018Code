@@ -4,6 +4,8 @@ import org.usfirst.frc.team3609.robot.OI;
 import org.usfirst.frc.team3609.robot.Robot;
 import org.usfirst.frc.team3609.robot.subsystems.Drivebase;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -18,8 +20,13 @@ public class TankDrive extends Command {
 	}
 
 	public void execute() {
-		Robot.drivebase.m_Drive.tankDrive(OI.DriverController.getRightYAxis(),
-				OI.DriverController.getLeftYAxis(), true);
+		//if (!OI.DriverController.lowTankDrive()) {
+
+			
+			Robot.drivebase.m_Drive.tankDrive(OI.DriverController.getLeftYAxis() * -1,
+					OI.DriverController.getRightYAxis() , true);
+
+		//}
 	}
 
 	@Override
